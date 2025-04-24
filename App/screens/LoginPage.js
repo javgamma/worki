@@ -1,22 +1,29 @@
-import { View, Text, Image, StyleSheet, Dimensions, TextInput, Pressable } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, TextInput,TouchableOpacity } from 'react-native';
+import { Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './../../firebaseConfig';
+import { auth } from '../../FirebaseConfig.js';
 import hombreTablet from './../../assets/images/hombreTablet.jpg';
-import Colors from './../../constants/Colors.js';
+import Colors from '../../constants/Colors.js';
+import { useNavigation } from '@react-navigation/native';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  const navigation = useNavigation();
+
   const handleRegister = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert('Usuario Creado');
+      await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) =>{
+        const user = userCredential.user;
+        console.log(user);
+      })
+      navigation.replace('Home')
     } catch (err) {
       console.error(err);
-      
       setError('Error al registrarse');
     }
   };
@@ -24,9 +31,8 @@ export default function LoginPage() {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert('¡Sesión iniciada!');
       setError('');
-      //Aqui se puede redirgir a la pantalla principal con navigation
+      navigation.replace('Home');
     } catch (err) {
       console.error(err);
       setError('email o contraseña incorrecta');
@@ -60,17 +66,18 @@ export default function LoginPage() {
           secureTextEntry
         />
 
-        <Pressable onPress={handleLogin} style={styles.viewLoginButton}>
+        <TouchableOpacity onPress={handleLogin} style={styles.viewLoginButton}>
           <Text style={{ color: Colors.primary, fontSize: 18, fontWeight: '500' }}>
             Iniciar sesión
           </Text>
-        </Pressable>
+       </TouchableOpacity>
 
-        <Pressable onPress={handleRegister} style={[styles.viewLoginButton, { backgroundColor: Colors.white}]}>
+        <TouchableOpacity onPress={handleRegister} style={[styles.viewLoginButton, { backgroundColor: Colors.white}]}>
           <Text style={{ color: Colors.black, fontSize: 18, fontWeight: '500' }}>
             Registrarse
           </Text>
-        </Pressable>
+        </TouchableOpacity>
+      
 
         {error !== '' && <Text style={styles.error}>{error}</Text>}
       </View>
