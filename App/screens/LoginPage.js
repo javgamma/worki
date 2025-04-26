@@ -21,7 +21,6 @@ export default function LoginPage() {
         const user = userCredential.user;
         console.log(user);
       })
-      navigation.replace('Home')
     } catch (err) {
       console.error(err);
       setError('Error al registrarse');
@@ -32,7 +31,6 @@ export default function LoginPage() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setError('');
-      navigation.replace('Home');
     } catch (err) {
       console.error(err);
       setError('email o contraseña incorrecta');
