@@ -41,11 +41,13 @@ export default function LoginPage() {
 
   return (
     <View style={styles.homeLayout}>
+      <View style={styles.containerImage}>
       <Image source={hombreTablet} style={styles.loginImage} />
+      </View>
 
-      <View style={{ backgroundColor: Colors.white,marginTop:-70, alignItems: 'center' }}>
+      <View style={styles.divContainer}>
         <Text style={styles.title}>
-          WORKI
+          worki
         </Text>
         <Text style={styles.subtitle}>
           Agenda tu cita con nuestros expertos y despreocúpate
@@ -86,37 +88,57 @@ export default function LoginPage() {
 }
 
 const styles = StyleSheet.create({
+
+  containerImage: {
+    width: '100%',
+    overflow: 'hidden', // importante para que el borderRadius funcione
+    borderBottomLeftRadius: 60, // curva solo esta esquina
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+  },
   loginImage: {
-    width: 401,
-    height: 600,
-    objectFit: 'contain',
-    borderRadius: 40,
+    width: '100%',
+    height: 550,
+    resizeMode: 'cover',
+    // borderRadius: 40,
   },
   title: {
-    fontSize: 26,
+    fontSize: 50,
     fontWeight: 'bold',
-    marginTop: -80,
+    marginTop: -20,
     backgroundColor: Colors.primary,
-    padding: 20,
-    borderRadius: 20,
+    padding: 5,
+    borderRadius: 10,
     color: Colors.white,
     textAlign: 'center',
+    paddingHorizontal:40
+  },
+  divContainer: {
+    backgroundColor: Colors.primaryLight +'80',
+    marginTop:-100,
+    alignItems: 'center',
+    paddingBottom:30,
+    borderRadius:15,
   },
   homeLayout: {
     alignItems: 'center',
+    backgroundColor: Colors.secondary,
+    height:'100%'
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 20,
     textAlign: 'center',
     marginTop: 20,
     paddingHorizontal: 20,
+    fontWeight:'600'
   },
   viewLoginButton: {
-    padding: 13,
+    padding: 10,
     backgroundColor: Colors.secondary,
-    borderRadius: 90,
+    borderRadius: 70,
     alignItems: 'center',
-    marginTop: 15,
+    marginTop: 20,
     width: Dimensions.get('screen').width * 0.5,
     borderColor: Colors.primary,
     borderWidth: 1,
@@ -128,7 +150,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     paddingHorizontal: 10,
-    marginTop: 15,
+    marginTop: 10,
     backgroundColor: '#f5f5f5',
   },
   error: {

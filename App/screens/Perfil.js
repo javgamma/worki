@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { signOut } from 'firebase/auth';
 import { auth } from '../../FirebaseConfig';
@@ -15,8 +15,11 @@ export default function Perfil() {
       };
 
   return (
-    <View>
-      <Text>Perfil</Text>
-    </View>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <Text style={{ fontSize: 30 }}>Tu perfil </Text>
+          <TouchableOpacity onPress={handleLogout} style={{ marginTop: 20 }}>
+            <Text style={{ color: "blue" }}>Cerrar sesión</Text>
+          </TouchableOpacity>
+        </View>
   )
 }

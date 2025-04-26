@@ -5,6 +5,7 @@ export default function Cita() {
   return (
     <View>
       <Text>Cita</Text>
+
     </View>
   )
 }
