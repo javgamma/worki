@@ -5,8 +5,9 @@ import HomeScreen from "../screens/HomeScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Cita from "../screens/Cita";
 import Perfil from "../screens/Perfil";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../FirebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from '@expo/vector-icons';
 
