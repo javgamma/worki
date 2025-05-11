@@ -14,18 +14,6 @@ export default function LoginPage() {
 
   const navigation = useNavigation();
 
-  const handleRegister = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) =>{
-        const user = userCredential.user;
-        console.log(user);
-      })
-    } catch (err) {
-      console.error(err);
-      setError('Error al registrarse');
-    }
-  };
 
   const handleLogin = async () => {
     try {
@@ -72,9 +60,9 @@ export default function LoginPage() {
           </Text>
        </TouchableOpacity>
 
-        <TouchableOpacity onPress={handleRegister} style={[styles.viewLoginButton, { backgroundColor: Colors.white}]}>
-          <Text style={{ color: Colors.black, fontSize: 18, fontWeight: '500' }}>
-            Registrarse
+       <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
+          <Text style={{ marginTop: 12, color: Colors.black }}>
+            ¿No tienes cuenta? <Text style={{ color: Colors.primary, fontWeight: 'bold' }}>Regístrate</Text>
           </Text>
         </TouchableOpacity>
       
@@ -89,8 +77,8 @@ const styles = StyleSheet.create({
 
   containerImage: {
     width: '100%',
-    overflow: 'hidden', // importante para que el borderRadius funcione
-    borderBottomLeftRadius: 60, // curva solo esta esquina
+    overflow: 'hidden', 
+    borderBottomLeftRadius: 60, 
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
@@ -99,7 +87,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 550,
     resizeMode: 'cover',
-    // borderRadius: 40,
   },
   title: {
     fontSize: 50,

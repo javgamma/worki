@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginPage from "../screens/LoginPage";
 import HomeScreen from "../screens/HomeScreen";
+import SignUpScreen from "../screens/SignUpScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Cita from "../screens/Cita";
 import Perfil from "../screens/Perfil";
@@ -45,7 +46,6 @@ function MainTabs() {
   );
 }
 
-// Controla si hay sesión iniciada
 export default function Navigator() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -63,7 +63,10 @@ export default function Navigator() {
         {isAuthenticated ? (
           <Stack.Screen name="MainTabs" component={MainTabs} />
         ) : (
+          <>
           <Stack.Screen name="Login" component={LoginPage} />
+          <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>
