@@ -3,6 +3,8 @@ import { View, Text, Button, Pressable, TouchableOpacity } from "react-native";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../FirebaseConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Header from "../Components/Home/Header";
+import SearchBar from "../Components/SearchBar";
 
 export default function HomeScreen({ navigation }) {
 
@@ -50,15 +52,12 @@ export default function HomeScreen({ navigation }) {
   };
 
   return (
+    <View style={{padding:20, marginTop:30}}>
+      <Header />
+      <SearchBar setSearchText={(value)=>console.log(value)
+      }/>
+
+    </View>
     
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <View style={{ padding: 20 }}>
-      <Text style={{ fontSize: 22 }}>Hola, {nombre} 👋</Text>
-    </View>
-      <Text style={{ fontSize: 30 }}>Bienvenido a Worki </Text>
-      <TouchableOpacity onPress={handleLogout} style={{ marginTop: 20 }}>
-        <Text style={{ color: "blue" }}>Cerrar sesión</Text>
-      </TouchableOpacity>
-    </View>
   );
 }

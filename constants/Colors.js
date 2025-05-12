@@ -9,5 +9,6 @@ export default{
     secondarylight:'#FFF170',
     white:'#FFFFFF',
     black:'#000000',
-    gray:'#333'
+    gray:'#333',
+    bordesGrises:'#c2c3c4',
 }
