@@ -4,7 +4,8 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../FirebaseConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../Components/Home/Header";
-import SearchBar from "../Components/SearchBar";
+import SearchBar from "../Components/Home/SearchBar";
+import Slider from "../Components/Home/Slider";
 
 export default function HomeScreen({ navigation }) {
 
@@ -56,6 +57,7 @@ export default function HomeScreen({ navigation }) {
       <Header />
       <SearchBar setSearchText={(value)=>console.log(value)
       }/>
+      <Slider/>
 
     </View>
     

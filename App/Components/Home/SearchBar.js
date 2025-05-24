@@ -1,7 +1,7 @@
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Colors from "../../constants/Colors";
+import Colors from "../../../constants/Colors";
 
 export default function SearchBar({setSearchText}) {
     const [searchInput, setSearchInput]= useState();
