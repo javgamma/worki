@@ -6,6 +6,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../Components/Home/Header";
 import SearchBar from "../Components/Home/SearchBar";
 import Slider from "../Components/Home/Slider";
+import Categorias from "../Components/Home/Categorias";
 
 export default function HomeScreen({ navigation }) {
 
@@ -58,6 +59,7 @@ export default function HomeScreen({ navigation }) {
       <SearchBar setSearchText={(value)=>console.log(value)
       }/>
       <Slider/>
+      <Categorias/>
 
     </View>
     
