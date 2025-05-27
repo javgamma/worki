@@ -59,7 +59,7 @@ export default function HomeScreen({ navigation }) {
       <SearchBar setSearchText={(value)=>console.log(value)
       }/>
       <Slider/>
-      <Categorias/>
+      <Categorias navigation={navigation}/>
 
     </View>
     

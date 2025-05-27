@@ -8,12 +8,21 @@ import Cita from "../screens/Cita";
 import Perfil from "../screens/Perfil";
 import { auth } from "../../FirebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
-
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from '@expo/vector-icons';
+import ListaProfeScreen from "../screens/ListaProfeScreen"; 
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+function HomeStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="ListaProfe" component={ListaProfeScreen} />
+    </Stack.Navigator>
+  );
+}
 
 
 function MainTabs() {
@@ -36,10 +45,10 @@ function MainTabs() {
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
-        headerShown: false,
+        headerShown: false, 
       })}
     >
-      <Tab.Screen name="Inicio" component={HomeScreen} />
+      <Tab.Screen name="Inicio" component={HomeStack} />
       <Tab.Screen name="Cita" component={Cita} />
       <Tab.Screen name="Perfil" component={Perfil} />
     </Tab.Navigator>

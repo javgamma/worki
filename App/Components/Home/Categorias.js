@@ -5,7 +5,7 @@ import GeneralApi from "../../Services/GeneralApi";
 const { width } = Dimensions.get('window');
 const categoryItemWidth = (width - 40) / 4;
 
-export default function Categorias() {
+export default function Categorias({navigation}) {
   const [listaCategoria, setListaCategoria] = useState([]);
 
   const pastelColors = [
@@ -48,7 +48,7 @@ export default function Categorias() {
           <TouchableOpacity
             key={item.id}
             style={styles.categoryItem}
-            onPress={() => console.log('Categoría seleccionada:', item.Name)}
+            onPress={() => navigation.navigate('ListaProfe', { categoryId: item.id, categoryName: item.Name })}
           >
             <View style={[
               styles.iconContainer,
