@@ -11,4 +11,7 @@ export default{
     black:'#000000',
     gray:'#333',
     bordesGrises:'#c2c3c4',
+    tomato: 'tomato',
+    grayDescription: '#555',
+    rosa:'#FFD1DC',
 }

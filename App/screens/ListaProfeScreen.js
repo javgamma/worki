@@ -42,7 +42,8 @@ export default function ListaProfesionalesScreen() {
   };
 
   const renderProfesionalCard = ({ item }) => (
-    <TouchableOpacity style={styles.cardContainer} onPress={() => console.log('Profesional seleccionado:', item.Name)}>
+    <TouchableOpacity style={styles.cardContainer}
+    onPress={() => navigation.navigate('DetalleProfe', { profesionalId: item.id })}>
       {item.Image && Array.isArray(item.Image) && item.Image.length > 0 && item.Image[0].url && (
          <Image source={{ uri: item.Image[0].url }} style={styles.profesionalImage} />
       )}

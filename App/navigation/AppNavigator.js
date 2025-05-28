@@ -11,6 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from '@expo/vector-icons';
 import ListaProfeScreen from "../screens/ListaProfeScreen"; 
+import DetalleProfeScreen from "../screens/DetalleProfeScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,6 +21,7 @@ function HomeStack() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="ListaProfe" component={ListaProfeScreen} />
+      <Stack.Screen name="DetalleProfe" component={DetalleProfeScreen}/>
     </Stack.Navigator>
   );
 }
