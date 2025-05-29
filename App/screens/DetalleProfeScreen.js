@@ -105,29 +105,39 @@ export default function DetalleProfeScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}
+        >
           <Ionicons name="arrow-back-outline" size={24} color="black" />
         </TouchableOpacity>
         <Text style={styles.title}>{Name}</Text>
       </View>
 
       <View style={styles.content}>
-        {imageUrl && <Image source={{ uri: imageUrl }} style={styles.profesionalImage} />}
-       
-        <Text style={styles.service}>{Service || 'Servicio no especificado'}</Text>
+        {imageUrl && (
+          <Image source={{ uri: imageUrl }} style={styles.profesionalImage} />
+        )}
+
+        <Text style={styles.service}>
+          {Service || "Servicio no especificado"}
+        </Text>
         <Text style={styles.experience}>
-          Experiencia: {Experience !== undefined ? Experience : 'No especificada'} años
+          Experiencia:{" "}
+          {Experience !== undefined ? Experience : "No especificada"} años
         </Text>
 
         {Rating !== undefined && Rating !== null && (
           <Text style={styles.rating}>
-            Calificación: {Rating}/5 <Ionicons name="star" size={16} color="#FFD700" />
+            Calificación: {Rating}/5{" "}
+            <Ionicons name="star" size={16} color="#FFD700" />
           </Text>
         )}
 
         {Location && (
           <Text style={styles.location}>
-            <Ionicons name="location-outline" size={16} color="#666" /> {Location}
+            <Ionicons name="location-outline" size={16} color="#666" />{" "}
+            {Location}
           </Text>
         )}
 
@@ -143,24 +153,32 @@ export default function DetalleProfeScreen() {
           <Text style={styles.contactHeader}>Contacto:</Text>
           {Phone && (
             <Text style={styles.contactText}>
-              <Ionicons name="call-outline" size={16} color="#333" /> Teléfono: {Phone}
+              <Ionicons name="call-outline" size={16} color="#333" /> Teléfono:{" "}
+              {Phone}
             </Text>
           )}
           {Email && (
             <Text style={styles.contactText}>
-              <Ionicons name="mail-outline" size={16} color="#333" /> Email: {Email}
+              <Ionicons name="mail-outline" size={16} color="#333" /> Email:{" "}
+              {Email}
             </Text>
           )}
           {PriceEstimate !== undefined && (
             <Text style={styles.contactText}>
-              <Ionicons name="pricetag-outline" size={16} color="#333" /> Tarifa Estimada: ${PriceEstimate}/hora
+              <Ionicons name="pricetag-outline" size={16} color="#333" /> Tarifa
+              Estimada: ${PriceEstimate}/hora
             </Text>
           )}
         </View>
 
         <TouchableOpacity
           style={styles.reserveButton}
-          onPress={() => console.log('Navegar a reserva de cita para:', Name)}
+          onPress={() =>
+            navigation.navigate("ReservaCita", {
+              profesionalId: profesionalId, 
+              profesionalName: Name, 
+            })
+          }
         >
           <Text style={styles.reserveButtonText}>Reservar Cita</Text>
         </TouchableOpacity>
