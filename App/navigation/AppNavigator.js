@@ -13,6 +13,8 @@ import { Ionicons } from '@expo/vector-icons';
 import ListaProfeScreen from "../screens/ListaProfeScreen"; 
 import DetalleProfeScreen from "../screens/DetalleProfeScreen";
 import ReservaCita from "../screens/ReservaCita";
+import EditCitaScreen from "../screens/EditCitaScreen";
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,6 +26,7 @@ function HomeStack() {
       <Stack.Screen name="ListaProfe" component={ListaProfeScreen} />
       <Stack.Screen name="DetalleProfe" component={DetalleProfeScreen}/>
       <Stack.Screen name="ReservaCita" component={ReservaCita}/>
+      <Stack.Screen name="EditCita" component={EditCitaScreen} /> 
     </Stack.Navigator>
   );
 }
