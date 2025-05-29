@@ -37,7 +37,7 @@ export default function EditCitaScreen({ route, navigation }) {
       await GeneralApi.updateCita(cita.id, updatedCitaData);
 
       Alert.alert("Éxito", "Cita actualizada correctamente.", [
-        { text: "OK", onPress: () => navigation.goBack() }
+        { text: "OK", onPress: () => {navigation.navigate('Cita')} }
       ]);
     } catch (error) {
       console.error("Error al actualizar cita:", error.response ? error.response.data : error.message);
