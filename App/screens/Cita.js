@@ -20,16 +20,16 @@ export default function Cita({ navigation }) {
     if (!refreshing && citas.length === 0) setLoading(true);
 
     try {
-      const response = await GeneralApi.getCitasByUserId(userId);
+      const response = await GeneralApi.getCitasByUserId(userId);      
 
       const fetchedCitas = response.data.data.map(item => ({
-        id: item.id,
-        fechaHora: new Date(item.fechaHora),
-        estado: item.estado,
-        profesionalNombre: item.professional.Name,
-        ubicacion: item.professional.Location,
-        telefono: item.professional.Phone,
-        profesionalImagenUrl: item.professional.Image?.[0]?.url,
+        id: item?.id,
+        fechaHora: new Date(item?.fechaHora),
+        estado: item?.estado,
+        profesionalNombre: item?.professional?.Name,
+        ubicacion: item?.professional?.Location,
+        telefono: item?.professional?.Phone,
+        profesionalImagenUrl: item?.professional?.Image?.[0]?.url,
       }));
       setCitas(fetchedCitas);
     } catch (error) {
