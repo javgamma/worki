@@ -7,6 +7,7 @@ import Header from "../Components/Home/Header";
 import SearchBar from "../Components/Home/SearchBar";
 import Slider from "../Components/Home/Slider";
 import Categorias from "../Components/Home/Categorias";
+import Publicidad from "../Components/Home/Publicidad";
 
 export default function HomeScreen({ navigation }) {
 
@@ -60,6 +61,7 @@ export default function HomeScreen({ navigation }) {
       }/>
       <Slider/>
       <Categorias navigation={navigation}/>
+      <Publicidad/>
 
     </View>
     

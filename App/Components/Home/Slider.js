@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, Dimensions } from 'react-native'
+import { View, FlatList, Image, Dimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import GeneralApi from '../../Services/GeneralApi';
 
@@ -11,7 +11,6 @@ export default function Slider() {
 
   const getSlider=()=>{
     GeneralApi.getSlider().then(resp=>{
-      // console.log(resp.data.data);
       setSliderList(resp.data.data)      
     })
   }
@@ -27,7 +26,7 @@ export default function Slider() {
             <Image
               source={{ uri: item.Image.url }}
               style={{
-                width: Dimensions.get("screen").width * 0.6,
+                width: Dimensions.get("screen").width * 0.8,
                 height: 170,
                 borderRadius:10,
                 margin:2
